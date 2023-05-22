@@ -10,6 +10,7 @@ class TodoController extends Controller
         'title A',
         'title B',
         'title C',
+        'Genki.jpで紹介したものへのリンクを掲載しているウェブサイトを作成するのはいかが？(ほぼ日サイト的な)'
     ];
 
     public function index() {
