@@ -13,3 +13,7 @@ h2 {
 ul {
     list-style: none;
 }
+
+.back-link {
+    font-size: 14px;
+}
