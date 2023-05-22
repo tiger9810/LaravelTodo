@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <div class="back-link">
-            &laquo; <a href="/">back</a>
+            &laquo; <a href="{{ route('todos.index') }}">back</a>
         </div>
         <h2>{{ $todo }}</h2>
     </div>
