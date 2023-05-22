@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TodoController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,13 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $todos = [
-        'title A',
-        'title B',
-        'title C',
-    ];
-    // viewのindexで$todosの内容をtodosという変数名で受け取るという処理
-    return view('index')
-        ->with(['todos' => $todos]);
-});
+// Route::get('/', ['App\Http\Controllers\TodoController', 'index']);省略↓
+// Route::get('/', [App\Http\Controllers\TodoController::class, 'index']);さらに省略↓
+Route::get('/', [TodoController::class, 'index']);
+
+// todoControllerにshowメソッドを作って、引数に{id}を渡す
+Route::get('/todos/{id}', [TodoController::class, 'show']);

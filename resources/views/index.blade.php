@@ -14,10 +14,12 @@ dd($todos)
     <div class="container">
         <h2>Today's Todo</h2>
             <ul>
-                @forelse ($todos as $todo)
+                @forelse ($todos as $index => $todo)
                     <li>
                         <input type="checkbox" name="" id="">
-                        <span>{{ $todo }}</span>
+                        <a href="/todos/{{ $index }}">
+                            {{ $todo }}
+                        </a>
                     </li>
                 @empty
                     <li>Todo Nothing!!</li>
