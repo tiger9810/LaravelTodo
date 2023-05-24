@@ -21,5 +21,5 @@ Route::get('/', [TodoController::class, 'index'])
     ->name('todos.index');
 
 // todoControllerにshowメソッドを作って、引数に{id}を渡す
-Route::get('/todos/{id}', [TodoController::class, 'show'])
+Route::get('/todos/{todo}', [TodoController::class, 'show'])
     ->name('todos.show');

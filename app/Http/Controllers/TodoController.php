@@ -2,25 +2,26 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use App\Models\Todo;
 
 class TodoController extends Controller
 {
-    private $todos = [
-        'title A',
-        'title B',
-        'title C',
-        'Genki.jpで紹介したものへのリンクを掲載しているウェブサイトを作成するのはいかが？(ほぼ日サイト的な)'
-    ];
 
     public function index() {
 
+        // 更新日時が早いもの順にデータを取得する
+        // $todos = Todo::orderBy('created_at', 'desc')->get();
+        $todos = Todo::latest()->get();
+
         // viewのindexで$todosの内容をtodosという変数名で受け取るという処理
         return view('index')
-            ->with(['todos' => $this->todos]);
+            ->with(['todos' => $todos]);
     }
-    public function show($id) {
+    public function show(Todo $todo) {
+
         return view('todos.show') //todos←はshow.blade.phpがあるフォルダ名
-            ->with(['todo' => $this->todos[$id]]); //変数todoには$this->todo[$id]が格納されている
+            ->with(['todo' => $todo]); //変数todoには$this->todo[$id]が格納されている
     }
 }
