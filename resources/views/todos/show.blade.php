@@ -8,6 +8,6 @@
         &laquo; <a href="{{ route('todos.index') }}">back</a>
     </div>
     <h2>{{ $todo->title }}</h2>
-    <p>{{ $todo->detail }}</p>
+    <p>{!! nl2br(e($todo->detail)) !!}</p>
 </x-layout>
 
