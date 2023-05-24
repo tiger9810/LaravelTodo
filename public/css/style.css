@@ -8,12 +8,53 @@ h2 {
     font-size: 18px;
     margin: 16px 0;
     padding-bottom: 8px;
+    display: flex;
 }
 
 ul {
     list-style: none;
-}
+    padding: 0 0 0 0;
+  }
 
-.back-link {
+  .list-item {
+    display: flex;
+    /* align-items: center; */
+    margin-bottom: 10px; /* 項目間のスペースを調整する場合、適宜変更してください */
+  }
+
+  .list-item input[type="checkbox"] {
+    display: flex;
+  }
+
+  .back-link {
     font-size: 14px;
-}
+  }
+
+
+
+ textarea {
+    height: 160px;
+    padding: 4px;
+    width: 100%;
+    box-sizing: border-box;
+ }
+ input[name="title"] {
+    /* CSSスタイルを適用するプロパティ */
+    padding: 4px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+
+ button {
+    padding: 4px 8px;
+    font-size: 14px;
+ }
+
+ .form-group {
+    margin-bottom: 16px;
+ }
+
+ .form-button {
+    text-align: right;
+ }
