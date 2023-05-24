@@ -24,4 +24,19 @@ class TodoController extends Controller
         return view('todos.show') //todos←はshow.blade.phpがあるフォルダ名
             ->with(['todo' => $todo]); //変数todoには$this->todo[$id]が格納されている
     }
+
+    public function store(Request $request) {
+
+        $request->validate([
+            'title' => 'required|min:3',
+        ]);
+
+        $todo = new Todo();
+        $todo->title = $request->title;
+        $todo->detail = $request->detail;
+        $todo->save();
+
+        return redirect()
+            ->route('todos.index');
+    }
 }

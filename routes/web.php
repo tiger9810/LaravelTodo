@@ -23,3 +23,6 @@ Route::get('/', [TodoController::class, 'index'])
 // todoControllerにshowメソッドを作って、引数に{id}を渡す
 Route::get('/todos/{todo}', [TodoController::class, 'show'])
     ->name('todos.show');
+
+Route::post('/todos/store', [TodoController::class, 'store'])
+    ->name('todos.store');

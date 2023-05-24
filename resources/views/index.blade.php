@@ -8,18 +8,21 @@
         <span>Today's Todo</span>
     </h2>
 
-    <form method="post" action="">
+    <form method="post" action="{{ route('todos.store') }}">
         @csrf
         <div class="form-group">
             <label for="">
                 Title
-                <input type="text" name="title">
+                <input type="text" name="title" value="{{ old('title') }}">
             </label>
+            @error('title')
+                <div class="error">{{ $message }}</div>
+            @enderror
         </div>
         <div class="form-group">
             <label for="">
                 detail
-                <textarea name="detail"></textarea>
+                <textarea name="detail">{{ old('detail') }}</textarea>
             </label>
         </div>
         <div class="form-button">
