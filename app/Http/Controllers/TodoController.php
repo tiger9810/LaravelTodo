@@ -39,4 +39,26 @@ class TodoController extends Controller
         return redirect()
             ->route('todos.index');
     }
+
+    public function edit(Todo $todo) {
+
+        return view('todos.edit') //todos←はshow.blade.phpがあるフォルダ名
+            ->with(['todo' => $todo]); //変数todoには$this->todo[$id]が格納されている
+    }
+
+    public function update(Request $request, Todo $todo) {
+
+        $request->validate([
+            'title' => 'required|min:3',
+        ]);
+
+
+        $todo->title = $request->title;
+        $todo->detail = $request->detail;
+        $todo->save();
+
+        return redirect()
+            ->route('todos.show', $todo);
+    }
+
 }
