@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Todo;
+use App\Http\Requests\TodoRequest;
 
 class TodoController extends Controller
 {
@@ -25,11 +26,7 @@ class TodoController extends Controller
             ->with(['todo' => $todo]); //変数todoには$this->todo[$id]が格納されている
     }
 
-    public function store(Request $request) {
-
-        $request->validate([
-            'title' => 'required|min:3',
-        ]);
+    public function store(TodoRequest $request) {
 
         $todo = new Todo();
         $todo->title = $request->title;
@@ -46,12 +43,8 @@ class TodoController extends Controller
             ->with(['todo' => $todo]); //変数todoには$this->todo[$id]が格納されている
     }
 
-    public function update(Request $request, Todo $todo) {
 
-        $request->validate([
-            'title' => 'required|min:3',
-        ]);
-
+    public function update(TodoRequest $request, Todo $todo) {
 
         $todo->title = $request->title;
         $todo->detail = $request->detail;
