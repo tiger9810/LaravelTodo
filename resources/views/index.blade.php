@@ -38,16 +38,35 @@
         @forelse ($todos as $todo)
         <ul>
             <li class="list-item">
-                <input type="checkbox" name="" id="">
-                {{-- <a href="/todos/{{ $index }}"> --}}
-                <a href="{{ route('todos.show', $todo) }}">
-                    {{ $todo->title }}
-                </a>
+              <input type="checkbox">
+              <a href="{{ route('todos.show', $todo) }}">
+                {{ $todo->title }}
+              </a>
+              <form method="post" action="{{ route('todos.destroy', $todo) }} " id="delete">
+                @method('DELETE')
+                @csrf
+                <button class="button">x</button>
+            </form>
             </li>
-        </ul>
+          </ul>
 
         @empty
             <li>Todo Nothing!!</li>
         @endforelse
     </ul>
+
+    <script>
+        'use strict'
+        {
+            document.getElementById('delete').addEventListener('submit', e=> {
+                e.preventDefault();
+
+                if (!confirm('Sure to delete?')) {
+                    return;
+                }
+
+                e.target.submit();
+            });
+        }
+    </script>
 </x-layout>

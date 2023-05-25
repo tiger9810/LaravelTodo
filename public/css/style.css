@@ -1,3 +1,7 @@
+a {
+    text-decoration: none;
+}
+
 .container {
     width: 480px;
     margin: 40px auto;
@@ -18,9 +22,12 @@ ul {
 
   .list-item {
     display: flex;
-    /* align-items: center; */
-    margin-bottom: 10px; /* 項目間のスペースを調整する場合、適宜変更してください */
+    align-items: center;
   }
+
+  .list-item > form {
+    margin-left: auto;
+}
 
   .list-item input[type="checkbox"] {
     display: flex;
@@ -29,8 +36,6 @@ ul {
   .back-link {
     font-size: 14px;
   }
-
-
 
  textarea {
     height: 160px;
@@ -69,4 +74,15 @@ ul {
     font-size: 16px;
     font-weight: normal;
     margin-left: auto;
+}
+
+.button {
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    font-weight: normal;
+    color: #15c;
+    cursor: pointer;
+    vertical-align: 1px;
+    text-align: right;
 }

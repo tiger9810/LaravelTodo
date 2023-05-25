@@ -31,8 +31,12 @@ Route::post('/todos/store', [TodoController::class, 'store'])
     // todoControllerにshowメソッドを作って、引数に{id}を渡す
 Route::get('/todos/{todo}/edit', [TodoController::class, 'edit'])
     ->name('todos.edit')
-    ->where('post', '[0-9]+');
+    ->where('todo', '[0-9]+');
 
 Route::patch('/todos/{todo}/update', [TodoController::class, 'update'])
     ->name('todos.update')
-    ->where('post', '[0-9]+');
+    ->where('todo', '[0-9]+');
+
+Route::delete('/todos/{todo}/destroy', [TodoController::class, 'destroy'])
+    ->name('todos.destroy')
+    ->where('todo', '[0-9]+');
