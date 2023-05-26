@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('todo_id');
+            $table->string('body');
             $table->timestamps();
+            $table
+                ->foreign('todo_id')
+                ->references('id')
+                ->on('todos')
+                ->onDelete('cascade');
         });
     }
 

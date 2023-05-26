@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     use HasFactory;
+
+    protected $fillable =[
+        'todo_id',
+        'body'
+    ];
+
+    public function todo() {
+        return $this->belongsTo(Todo::class);
+    }
 }

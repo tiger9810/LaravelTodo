@@ -14,4 +14,8 @@ class Todo extends Model
         'title',
         'detail',
     ];
+
+    public function comments() {
+        return $this->hasMany(Comment::class);
+    }
 }

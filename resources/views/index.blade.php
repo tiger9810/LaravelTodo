@@ -4,9 +4,9 @@
         Today's todo
     </x-slot>
 
-    <h2>
+    <h1>
         <span>Today's Todo</span>
-    </h2>
+    </h1>
 
     <form method="post" action="{{ route('todos.store') }}">
         @csrf
@@ -38,15 +38,15 @@
         @forelse ($todos as $todo)
         <ul>
             <li class="list-item">
-              <input type="checkbox">
-              <a href="{{ route('todos.show', $todo) }}">
+                <input type="checkbox">
+                <a href="{{ route('todos.show', $todo) }}">
                 {{ $todo->title }}
-              </a>
-              <form method="post" action="{{ route('todos.destroy', $todo) }} " id="delete">
-                @method('DELETE')
-                @csrf
-                <button class="button">x</button>
-            </form>
+                </a>
+                <form method="post" action="{{ route('todos.destroy', $todo) }} " id="delete">
+                    @method('DELETE')
+                    @csrf
+                    <button class="button">x</button>
+                </form>
             </li>
           </ul>
 

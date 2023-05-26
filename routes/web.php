@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoController;
+use App\Http\Controllers\CommentController;
+
 
 
 /*
@@ -40,3 +42,11 @@ Route::patch('/todos/{todo}/update', [TodoController::class, 'update'])
 Route::delete('/todos/{todo}/destroy', [TodoController::class, 'destroy'])
     ->name('todos.destroy')
     ->where('todo', '[0-9]+');
+
+Route::post('/todos/{todo}/comments', [CommentController::class, 'store'])
+    ->name('comments.store')
+    ->where('todo', '[0-9]+');
+
+Route::delete('/comments/{comment}/destroy', [CommentController::class, 'destroy'])
+    ->name('comments.destroy')
+    ->where('comment', '[0-9]+');
